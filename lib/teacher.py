@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 
 from user import User
-
 import random
 
 class Teacher(User):
-
-
-    def __init__(self, first_name, last_name, knowledge = [
+    knowledge = [
     "str is a data type in Python",
     "programming is hard, but it's worth it",
     "JavaScript async web request",
@@ -16,13 +13,12 @@ class Teacher(User):
     "programming computers hacking learning terminal",
     "pipenv install pipenv shell",
     "pytest -x flag to fail fast",
-    ]):
+]
+
+    def __init__(self, first_name, last_name):
         super().__init__(first_name, last_name)
-        self.knowledge = knowledge
+        self.knowledge =  Teacher.knowledge
 
     def teach(self):
-        return random.choice(self.knowledge)
-
-
-my_teacher = Teacher("My", "Teacher")
-print(my_teacher.knowledge)
+        return self.knowledge[random.randint(0 , len(self.knowledge))]
+   

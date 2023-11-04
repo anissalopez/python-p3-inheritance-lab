@@ -3,10 +3,9 @@
 from user import User
 
 class Student(User):
-    def __init__(self, first_name, last_name, knowledge = None):
+    def __init__(self, first_name, last_name):
         super().__init__(first_name, last_name)
-        self.knowledge = [] if knowledge == None else knowledge
-    
-    def learn(self, str):
-        self.knowledge.append(str)
-        return self.knowledge
+        self.knowledge = list()
+
+    def learn(self, knowledge):
+        self.knowledge.append(knowledge)
